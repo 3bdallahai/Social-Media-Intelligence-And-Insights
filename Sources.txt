@@ -1,4 +1,0 @@
-social-media-performance-and-engagement-data:
-		https://www.kaggle.com/datasets/svthejaswini/social-media-performance-and-engagement-data
-social-media-engagement-dataset:
-		https://www.kaggle.com/datasets/subashmaster0411/social-media-engagement-dataset
