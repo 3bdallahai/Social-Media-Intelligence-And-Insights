@@ -1,0 +1,44 @@
+dataset 1 columns:
+        ['post_id', 'timestamp', 'day_of_week', 'platform', 'user_id',
+        'location', 'language', 'text_content', 'hashtags', 'mentions',
+        'keywords', 'topic_category', 'sentiment_score', 'sentiment_label',
+        'emotion_type', 'toxicity_score', 'likes_count', 'shares_count',
+        'comments_count', 'impressions', 'engagement_rate', 'brand_name',
+        'product_name', 'campaign_name', 'campaign_phase',
+        'user_past_sentiment_avg', 'user_engagement_growth',
+        'buzz_change_rate']
+
+dataset 2 columns:
+        ['post_id', 'platform', 'content_type', 'topic', 'language', 'region',
+        'post_datetime', 'hashtags', 'sentiment_score', 'views', 'likes',
+        'comments', 'shares', 'engagement_rate', 'is_viral']
+
+
+## common columns: 
+
+- post_id (different data types) / we don't need it for now 
+- platform
+- timestamp, post_datetime
+- language
+- location (city, country), region (country apprev.)
+- hashtags
+- sentiment_score
+- likes_count, likes
+- comments_count, comments
+- shares_count, shares
+- engagement_rate
+
+## observations:
+
+* dataset 1 don't have views count. however,we can calculate it using the sum(likes,shares,comments)/(engagement_rate)
+        - we need to check that this formula holds for all the data we have 
+* There are outliers in the engagemnt_rate in the first dataset with value up to 32.21171 while the top 75% is at 0.16
+    - There are 487 rows with the problem 
+    - they are probably % sow we can divide by 100   
+* language is abbreviated so we can add the full name of the language or at least make all abbrevations Upper case letters
+* region in dataset 2 is only countries and they are abbreviated while in dataset 1 location is city and country combination 
+* There is no nulls in the common columns we chose
+    -Duplicates
+    -Invalid values (negative likes? weird timestamps?)
+* we need to extract time from the datetime compination 
+* create hashtags_count
