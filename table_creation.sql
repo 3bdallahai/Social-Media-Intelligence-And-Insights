@@ -1,3 +1,6 @@
+IF OBJECT_ID('dbo.social_media_posts', 'U') IS NOT NULL
+    DROP TABLE dbo.social_media_posts;
+    
 CREATE TABLE social_media_posts (
     post_key INT IDENTITY PRIMARY KEY,
 
@@ -40,7 +43,6 @@ CREATE TABLE social_media_posts (
     comments INT,
     shares INT,
     views FLOAT,
-    impressions FLOAT,
     engagement_rate FLOAT,
 
     -- Viral flag (dataset 2)

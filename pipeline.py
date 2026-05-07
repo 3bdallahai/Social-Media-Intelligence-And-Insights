@@ -56,8 +56,8 @@ def clean_marketing(df):
         lambda x: x / 100 if x > 1 else x
     )
 
-    # Derived impressions
-    df["impressions"] = (
+    # Derived views
+    df["views"] = (
         (df["likes"] + df["comments"] + df["shares"]) /
         df["engagement_rate"]
     )
@@ -111,8 +111,6 @@ def clean_general(df):
     df["user_engagement_growth"] = None
     df["buzz_change_rate"] = None
 
-    # Impressions not available
-    df["impressions"] = None
 
     # Source
     df["source"] = "general"
@@ -128,7 +126,7 @@ def merge_data(df1, df2):
     # Ensure numeric columns
     numeric_cols = [
         "likes", "comments", "shares", "views",
-        "impressions", "engagement_rate"
+        "views", "engagement_rate"
     ]
 
     for col in numeric_cols:
@@ -161,7 +159,6 @@ def merge_data(df1, df2):
     'comments',
     'shares',
     'views',
-    'impressions',
     'engagement_rate',
     'is_viral',
     'brand_name',
