@@ -60,10 +60,10 @@ def clean_marketing(df):
     df["views"] = (
         (df["likes"] + df["comments"] + df["shares"]) /
         df["engagement_rate"]
-    )
+    ).astype(int)
 
     # Add missing fields
-    df["views"] = None
+
     df["is_viral"] = None
 
     # Source
