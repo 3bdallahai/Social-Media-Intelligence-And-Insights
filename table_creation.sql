@@ -1,3 +1,6 @@
+CREATE DATABASE Social_media_analysis;
+GO
+
 IF OBJECT_ID('dbo.social_media_posts', 'U') IS NOT NULL
     DROP TABLE dbo.social_media_posts;
     
