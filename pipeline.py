@@ -44,7 +44,7 @@ def clean_marketing(df):
 
     # Content defaults
     df["content_type"] = "unknown"
-    df["topic"] = None
+    df["topic"] = "unknown"
 
     # Hashtags count
     df["hashtag_count"] = df["hashtags"].apply(
@@ -86,8 +86,20 @@ def clean_general(df):
     df["hour"] = df["post_datetime"].dt.hour
     df["day_of_week"] = df["post_datetime"].dt.day_name()
 
+    country_map = {
+    "BR": "Brazil",
+    "JP": "Japan",
+    "FR": "France",
+    "DE": "Germany",
+    "US": "USA",
+    "AU": "Australia",
+    "MX": "Mexico",
+    "CA": "Canada",
+    "UK": "UK",
+    "IN": "India"
+    }
     # Location
-    df["country"] = df["region"]
+    df["country"] = df["region"].map(country_map)
     df["city"] = None
 
     # Hashtag count
